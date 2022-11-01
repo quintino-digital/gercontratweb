@@ -23,9 +23,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.css",
+              "src/assets/vendors/perfect-scrollbar/perfect-scrollbar.css",
+              "src/assets/vendors/bootstrap-icons/bootstrap-icons.css",
+              "src/assets/css/app.css",
+              "src/assets/vendors/toastify/toastify.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
