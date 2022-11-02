@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContratoCadastrarComponent } from './page/contrato/contrato-cadastrar/contrato-cadastrar.component';
 import { ContratoComponent } from './page/contrato/contrato.component';
+import { MonitoramentoComponent } from './page/monitoramento/monitoramento.component';
+import { MenuLateralComponent } from './component/menu-lateral/menu-lateral.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContratoComponent,
-    ContratoCadastrarComponent
+    ContratoCadastrarComponent,
+    MonitoramentoComponent,
+    MenuLateralComponent
   ],
   imports: [
     BrowserModule,
