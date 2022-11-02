@@ -1,1 +1,60 @@
-<router-outlet></router-outlet>
+<div id="app">
+
+    <div id="sidebar" class="active">
+
+        <div class="sidebar-wrapper active">
+
+            <div class="sidebar-header">
+                <div class="d-flex justify-content-between">
+                    <h4 class="text-subtitle">GERCONTRAT</h4>
+                    <div class="toggler">
+                        <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+
+                <ul class="menu">
+                    
+                    <li class="sidebar-title">Menu</li>
+
+                    <li class="sidebar-item  ">
+                        <a routerLink="monitoramento" class='sidebar-link'>
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Monitoramento</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-title">Cadastros</li>
+
+                    <li class="sidebar-item  ">
+                        <a routerLink="contrato-cadastrar" class='sidebar-link'>
+                            <i class="bi bi-cash"></i>
+                            <span>Contratos Financeiros</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+        </div>
+    </div>
+
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
+
+        <div class="page-heading">
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+        <footer></footer>
+
+    </div>
+</div>
