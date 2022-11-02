@@ -1,3 +1,4 @@
+import { ContratoService } from './../../../service/contrato.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContratoCadastrarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private contratoService: ContratoService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    this.recuperarPessoaJuridica();
+  }
+
+  public recuperarPessoaJuridica() {
+    this.contratoService.recuperarPessoaJuridica().subscribe(response => {
+      console.log(response);
+    });
   }
 
 }
