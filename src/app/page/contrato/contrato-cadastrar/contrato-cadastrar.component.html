@@ -78,12 +78,11 @@
 
                       <div class="col-md-6 col-12">
                         <div class="form-group">
-                          <label for="pessoa-contratada">Contratada</label>
+                          <label for="pessoa-juridica">Instituição Financeira</label>
                           <fieldset class="form-group">
-                            <select id="pessoa-contratada" class="form-select">
+                            <select id="pessoa-juridica" class="form-select">
                               <option>Selecione</option>
-                              <option>Banco Do Brasil</option>
-                              <option>Caixa Econômica Federal</option>
+                              <option *ngFor="let item of pessoaList">{{item.nome}}</option>
                             </select>
                           </fieldset>
                         </div>
@@ -95,8 +94,7 @@
                           <fieldset class="form-group">
                             <select id="tipo-contrato" class="form-select">
                               <option>Selecione</option>
-                              <option>Contrato de Empréstimo Bancário</option>
-                              <option>Contrato de Plano de Internet Fixa</option>
+                              <option *ngFor="let item of tipoContratoList">{{item.descricao}}</option>
                             </select>
                           </fieldset>
                         </div>
@@ -114,8 +112,7 @@
                           <fieldset class="form-group">
                             <select id="periodo-contrato" class="form-select">
                               <option>Selecione</option>
-                              <option>Mensal</option>
-                              <option>Anual</option>
+                              <option *ngFor="let item of tipoPeriodoFinanceiroList">{{item.descricao}}</option>
                             </select>
                           </fieldset>
                         </div>

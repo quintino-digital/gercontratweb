@@ -12,8 +12,16 @@ export class ContratoService {
     private httpClient: HttpClient
   ) { }
 
-  public recuperarPessoaJuridica() : Observable<any[]> {
+  public recuperarPessoaInstituicaoFinanceira() : Observable<any[]> {
     return this.httpClient.get<any[]>(environment.endpoint_pessoa);
+  }
+
+  public recuperarTipoContrato() : Observable<any[]> {
+    return this.httpClient.get<any[]>(environment.endpoint_tipo_contrato);
+  }
+
+  public recuperarTipoPeriodoFinanceiro() : Observable<any[]> {
+    return this.httpClient.get<any[]>(environment.endpoint_tipo_periodo_financeiro);
   }
 
 }

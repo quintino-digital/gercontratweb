@@ -1,5 +1,5 @@
-import { ContratoService } from './../../../service/contrato.service';
 import { Component, OnInit } from '@angular/core';
+import { ContratoService } from './../../../service/contrato.service';
 
 @Component({
   selector: 'app-contrato-cadastrar',
@@ -8,17 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContratoCadastrarComponent implements OnInit {
 
+  public pessoaList: any = [];
+
+  public tipoContratoList: any = [];
+
+  public tipoPeriodoFinanceiroList: any = [];
+
   constructor(
     private contratoService: ContratoService
   ) { }
 
-  ngOnInit(): void { 
-    this.recuperarPessoaJuridica();
+  ngOnInit(): void {
+    this.recuperarPessoaInstituicaoFinanceira();
+    this.recuperarTipoContrato();
+    this.recuperarTipoPeriodoFinanceiro();
   }
 
-  public recuperarPessoaJuridica() {
-    this.contratoService.recuperarPessoaJuridica().subscribe(response => {
-      console.log(response);
+  public recuperarPessoaInstituicaoFinanceira() {
+    this.contratoService.recuperarPessoaInstituicaoFinanceira().subscribe(response => {
+      this.pessoaList = response;
+      console.log(this.pessoaList);
+    });
+  }
+
+  public recuperarTipoContrato() {
+    this.contratoService.recuperarTipoContrato().subscribe(response => {
+      this.tipoContratoList = response;
+    });
+  }
+
+  public recuperarTipoPeriodoFinanceiro() {
+    this.contratoService.recuperarTipoPeriodoFinanceiro().subscribe(response => {
+      this.tipoPeriodoFinanceiroList = response;
     });
   }
 
