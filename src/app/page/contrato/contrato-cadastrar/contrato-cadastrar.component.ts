@@ -27,7 +27,6 @@ export class ContratoCadastrarComponent implements OnInit {
   public recuperarPessoaInstituicaoFinanceira() {
     this.contratoService.recuperarPessoaInstituicaoFinanceira().subscribe(response => {
       this.pessoaList = response;
-      console.log(this.pessoaList);
     });
   }
 
