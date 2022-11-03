@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
 })
 export class ContratoCadastrarComponent implements OnInit {
 
+  public isApresentarMensagemSucesso: boolean = false;
+
   public pessoaList: any = [];
 
   public tipoContratoList: any = [];
@@ -70,10 +72,24 @@ export class ContratoCadastrarComponent implements OnInit {
       quantidadeParcela: this.formBuilderGroup.controls["quantidadeParcela"].value
     };
     this.contratoService.cadastrarContrato(contratoRequestDTO).subscribe(response => {
-      console.log(response);
-      console.log("Contrato Cadastrado com Sucesso!");
-      this.router.navigateByUrl("/monitoramento");
+      this.limparFormulario();
+      this.apresentarMensagemSucesso();
     });
+  }
+
+  public apresentarMensagemSucesso() {
+    this.isApresentarMensagemSucesso = true;
+    setTimeout(() => {
+      this.isApresentarMensagemSucesso = false;
+    }, 5000);
+  }
+
+  public redirecionarTelaMonitoramento() {
+    return this.router.navigateByUrl("/monitoramento");
+  }
+
+  public limparFormulario() {
+    this.formBuilderGroup.reset();
   }
 
 }

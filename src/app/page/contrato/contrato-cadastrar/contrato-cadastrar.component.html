@@ -99,9 +99,9 @@
 
               <div class="row"><br/></div>
 
-                <div class="col-12 d-flex justify-content-end">
-                  <button id="background" (click)="saveOne()" class="btn btn-primary btn-block me-1 mb-1">Cadastrar Contrato</button>
-                  <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
+                <div class="col-12 d-flex justify-content-end modal-primary">
+                  <button id="background" (click)="saveOne()" [disabled]="!formBuilderGroup.valid" data-bs-toggle="modal" data-bs-target="#success" class="btn btn-primary btn-block me-1 mb-1">Cadastrar Contrato</button>
+                  <button type="reset" (click)="limparFormulario()" class="btn btn-danger me-1 mb-1">Cancelar</button>
                 </div>
 
             </form>
@@ -111,3 +111,37 @@
     </div>
   </div>
 </section>
+
+<div class="modal-primary me-1 mb-1 d-inline-block">
+
+  <div class="modal fade text-left" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+
+      <div class="modal-content">
+
+        <div class="modal-header bg-primary">
+          <h5 class="modal-title white" id="myModalLabel110">
+            Mensagem de Sucesso
+          </h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          Contrato Cadastrado com Sucesso!
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+            <i class="bx bx-x d-block d-sm-none"></i>
+            <span routerLink="/monitoramento" class="d-none d-sm-block">Fechar</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
