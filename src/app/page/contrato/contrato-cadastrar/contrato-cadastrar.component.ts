@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ContratoService } from './../../../service/contrato.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-contrato-cadastrar',
@@ -29,7 +30,8 @@ export class ContratoCadastrarComponent implements OnInit {
 
   constructor(
     private contratoService: ContratoService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -70,6 +72,7 @@ export class ContratoCadastrarComponent implements OnInit {
     this.contratoService.cadastrarContrato(contratoRequestDTO).subscribe(response => {
       console.log(response);
       console.log("Contrato Cadastrado com Sucesso!");
+      this.router.navigateByUrl("/monitoramento");
     });
   }
 
