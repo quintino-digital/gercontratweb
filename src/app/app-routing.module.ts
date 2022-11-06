@@ -7,7 +7,7 @@ import { ContratoComponent } from './page/contrato/contrato.component';
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "monitoramento" },
   { path: "monitoramento", component: MonitoramentoComponent},
-  { path: "contrato-monitorar", component: ContratoComponent},
+  { path: "contrato", component: ContratoComponent},
   { path: "contrato-cadastrar", component: ContratoCadastrarComponent}
 ];
 
