@@ -13,9 +13,11 @@ export class ContratoService {
     private httpClient: HttpClient
   ) { }
 
-  public recuperarPessoaInstituicaoFinanceira() : Observable<any[]> {
+  public recuperarPessoaJuridica() : Observable<any[]> {
     return this.httpClient.get<any[]>(environment.endpoint_pessoa);
   }
+
+  public recuperarPessoaFisica() { }
 
   public recuperarTipoContrato() : Observable<any[]> {
     return this.httpClient.get<any[]>(environment.endpoint_tipo_contrato);
@@ -25,8 +27,12 @@ export class ContratoService {
     return this.httpClient.get<any[]>(environment.endpoint_tipo_periodo_financeiro);
   }
 
-  public cadastrarContrato(contratoRequestDTO: ContratoRequestDTO) : Observable<ContratoRequestDTO> {
-    return this.httpClient.post<ContratoRequestDTO>(environment.endpoint_contrato, contratoRequestDTO);
+  public cadastrarContratoFinanceiro(contratoRequestDTO: any) {
+    return this.httpClient.post<any>(environment.endpoint_contrato, contratoRequestDTO);
+  }
+
+  public findAll() : Observable<any[]> {
+    return this.httpClient.get<any[]>(environment.endpoint_contrato);
   }
 
 }

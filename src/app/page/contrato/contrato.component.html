@@ -1,39 +1,50 @@
-<section class="section">
-  <div class="row" id="table-hover-row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Hoverable rows</h4>
-        </div>
-        <div class="card-content">
-          <div class="table-responsive">
-            <table class="table table-hover mb-0">
+<div class="panel-header bg-primary-gradient">
+  <div class="page-inner py-5">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+      <div class="ml-md-auto py-2 py-md-0">
+        <a routerLink="/contrato-cadastrar" class="btn btn-white btn-border btn-round mr-2">Cadastrar Novo Contrato</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-inner mt--5">
+
+  <div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Contratos Vigentes</div>
+          </div>
+          <div class="card-body">
+            <table class="table table-hover">
               <thead>
-              <tr>
-                <th>NAME</th>
-                <th>RATE</th>
-                <th>SKILL</th>
-                <th>TYPE</th>
-                <th>LOCATION</th>
-                <th>ACTION</th>
-              </tr>
+                <tr>
+                  <th scope="col">Identificador</th>
+                  <th scope="col">Instituição Financeira</th>
+                  <th scope="col">Vigência</th>
+                  <th scope="col">Ações</th>
+                </tr>
               </thead>
               <tbody>
-              <tr>
-                <td class="text-bold-500">Michael Right</td>
-                <td>$15/hr</td>
-                <td class="text-bold-500">UI/UX</td>
-                <td>Remote</td>
-                <td>Austin,Taxes</td>
-                <td><a href="#"><i
-                  class="badge-circle badge-circle-light-secondary font-medium-1"
-                  data-feather="mail"></i></a></td>
-              </tr>
+                <tr *ngFor="let item of contratoFinanceiroList">
+                  <td>{{item.nomePessoaContratada}}</td>
+                  <td>{{item.identificador}}</td>
+                  <td>De {{item.dataInicio | date:'dd/MM/yyyy'}} à {{item.dataFim | date:'dd/MM/yyyy'}}</td>
+                  <td>
+                    <button class="btn btn-secondary">
+                      Detalhar
+                    </button>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
-      </div>
+
     </div>
+
   </div>
-</section>
+</div>

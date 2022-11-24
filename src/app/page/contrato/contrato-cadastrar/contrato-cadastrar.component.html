@@ -1,147 +1,132 @@
-<section id="multiple-column-form">
-  <div class="row match-height">
-    <div class="col-12">
+<div class="panel-header bg-primary-gradient">
+  <div class="page-inner py-5">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row"></div>
+  </div>
+</div>
+
+<div class="page-inner mt--5">
+
+  <div class="row">
+
+    <div class="col-md-12">
+
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Cadastro de Contratos Financeiros</h4>
+          <div class="card-title">Cadastro de Contratos Financeiros</div>
         </div>
-        <div class="card-content">
-          <div class="card-body">
+        <div class="card-body">
 
-            <form [formGroup]="formBuilderGroup" class="form">
+          <form [formGroup]="formBuilderGroup" class="form">
 
-              <div class="row">
+            <div class="row">
 
-                <div class="col-md-6 col-12">
-                  <div class="form-group">
-                    <label for="pessoa-instituicao-financeira">Instituição Financeira</label>
-                    <fieldset class="form-group">
-                      <select id="pessoa-instituicao-financeira" name="pessoa-instituicao-financeira" formControlName="codigoInstituicaoFinanceira" class="form-select">
-                        <option>Selecione</option>
-                        <option *ngFor="let item of pessoaList" [value]="item.codigo">{{item.nome}}</option>
-                      </select>
-                    </fieldset>
-                  </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="tipo-contrato-financeiro">Tipo de Contrato Financeiro</label>
+                  <select id="tipo-contrato-financeiro" name="tipo-contrato-financeiro" formControlName="codigoTipoContrato" class="form-control">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let item of pessoaTipoContratoList" [value]="item.codigo">{{item.descricao}}</option>
+                  </select>
                 </div>
-
-                <div class="col-md-6 col-12">
-                  <div class="form-group">
-                    <label for="tipo-contrato">Tipo de Contrato</label>
-                    <fieldset class="form-group">
-                      <select id="tipo-contrato" name="tipo-contrato" formControlName="codigoTipoContratoModel" class="form-select">
-                        <option>Selecione</option>
-                        <option *ngFor="let item of tipoContratoList" [value]="item.codigo">{{item.descricao}}</option>
-                      </select>
-                    </fieldset>
-                  </div>
-                </div>
-
               </div>
 
-              <div class="row"><br/></div>
-
-              <div class="row">
-
-                <div class="col-md-4 col-12">
-                  <div class="form-group">
-                    <label for="periodo-contrato">Período do Contrato</label>
-                    <fieldset class="form-group">
-                      <select id="periodo-contrato" name="periodo-contrato" formControlName="codigoTipoPeriodoModel" class="form-select">
-                        <option>Selecione</option>
-                        <option *ngFor="let item of tipoPeriodoFinanceiroList" [value]="item.codigo">{{item.descricao}}</option>
-                      </select>
-                    </fieldset>
-                  </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="intituicao-financeira">Instituição Financeira</label>
+                  <select id="intituicao-financeira" name="intituicao-financeira" formControlName="codigoInstituicaoFinanceira" class="form-control">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let item of pessoaJuridicaList" [value]="item.codigo">{{item.nome}}</option>
+                  </select>
                 </div>
-
-                <div class="col-md-4 col-12">
-                  <div class="form-group">
-                    <label for="data-inicio">Data Início da Vigência</label>
-                    <input type="date" id="data-inicio" name="data-inicio" formControlName="dataInicio" placeholder="DD/MM/AAAA" class="form-control">
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-12">
-                  <div class="form-group">
-                    <label for="valor-efetivo">Valor Recebido</label>
-                    <input type="text" id="valor-efetivo" name="valor-efetivo" formControlName="valorEfetivo" placeholder="R$ 00,00" class="form-control">
-                  </div>
-                </div>
-
               </div>
 
-              <div class="row"><br/></div>
-
-              <div class="row">
-
-                <div class="col-md-4 col-12">
-                  <div class="form-group">
-                    <label for="valor-parcela">Valor da Parcela</label>
-                    <input type="text" id="valor-parcela" name="valor-parcela" formControlName="valorParcela" placeholder="R$ 00,00" class="form-control">
-                  </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="tipo-periodo-financeiro">Período Financeiro</label>
+                  <select id="tipo-periodo-financeiro" name="tipo-periodo-financeiro" formControlName="codigoTipoPeriodo" class="form-control">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let item of pessoaTipoPeriodoFinanceiroList" [value]="item.codigo">{{item.descricao}}</option>
+                  </select>
                 </div>
+              </div>
+            </div>
 
-                <div class="col-md-4 col-12">
-                  <div class="form-group">
-                    <label for="dia-vencimento">Dia do Vencimento</label>
-                    <input type="text" id="dia-vencimento" name="dia-vencimento" formControlName="diaVencimento" placeholder="DD" class="form-control">
-                  </div>
+            <div class="row">
+
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="data-inicio">Data Início da Vigência do Contrato</label>
+                  <input type="date" id="data-inicio" name="data-inicio" formControlName="dataInicio" class="form-control">
                 </div>
-
-                <div class="col-md-4 col-12">
-                  <div class="form-group">
-                    <label for="quantidade-parcela">Quantidade de Parcelas</label>
-                    <input type="text" id="quantidade-parcela" name="quantidade-parcela" formControlName="quantidadeParcela" placeholder="Quantidade de Parcelas" class="form-control">
-                  </div>
-                </div>
-
               </div>
 
-              <div class="row"><br/></div>
-
-                <div class="col-12 d-flex justify-content-end modal-primary">
-                  <button id="background" (click)="saveOne()" [disabled]="!formBuilderGroup.valid" data-bs-toggle="modal" data-bs-target="#success" class="btn btn-primary btn-block me-1 mb-1">Cadastrar Contrato</button>
-                  <button type="reset" (click)="limparFormulario()" class="btn btn-danger me-1 mb-1">Cancelar</button>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="valor-recebido">Valor Recebido</label>
+                  <input type="text" id="valor-recebido" name="valor-recebido" formControlName="valorEfetivo" placeholder="R$ 00,00" class="form-control">
                 </div>
+              </div>
 
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="valor-parcela">Valor da Parcela</label>
+                  <input type="text" id="valor-parcela" name="valor-parcela" placeholder="R$ 00,00" formControlName="valorParcela" class="form-control">
+                </div>
+              </div>
 
-<div class="modal-primary me-1 mb-1 d-inline-block">
+            </div>
 
-  <div class="modal fade text-left" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
+            <div class="row">
+              <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label for="dia-vencimento">Dia do Vencimento</label>
+                  <input type="text" id="dia-vencimento" name="dia-vencimento" formControlName="diaVencimento" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label for="quantidade-parcela">Quantidade de Parcelas</label>
+                  <input type="text" id="quantidade-parcela" name="quantidade-parcela" formControlName="quantidadeParcela" class="form-control">
+                </div>
+              </div>
+            </div>
 
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="row"><br /></div>
 
-      <div class="modal-content">
+            <div class="row">
+              <div class="col-md-6 col-lg-10">
+                <button id="background" [disabled]="!formBuilderGroup.valid" (click)="saveOne()" class="btn btn-primary btn-block me-1 mb-1">Cadastrar
+                  Contrato</button>
+              </div>
+              <div class="col-md-6 col-lg-2">
+                <button id="background" (click)="redirecionarPaginaGerenciadorContrato()"
+                  class="btn btn-danger btn-block btn-border me-1 mb-1">Cancelar</button>
+              </div>
 
-        <div class="modal-header bg-primary">
-          <h5 class="modal-title white" id="myModalLabel110">
-            Mensagem de Sucesso
-          </h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <i data-feather="x"></i>
-          </button>
-        </div>
+            </div>
 
-        <div class="modal-body">
-          Contrato Cadastrado com Sucesso!
-        </div>
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-            <i class="bx bx-x d-block d-sm-none"></i>
-            <span routerLink="/monitoramento" class="d-none d-sm-block">Fechar</span>
-          </button>
+          </form>
 
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="isApresentarMensagemSucesso" data-notify="container" class="col-10 col-xs-11 col-sm-4 alert alert-success"
+  role="alert" data-notify-position="top-right"
+  style="display: inline-block; margin: 0px auto; padding-left: 65px; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; right: 20px;">
+  <span data-notify="icon" class="none">
+  </span>
+  <span data-notify="title">Mensagem</span> <span data-notify="message">Contrato Financeiro cadastrado com
+    Sucesso!</span>
+</div>
+
+<div *ngIf="isApresentarMensagemErro" data-notify="container" class="col-10 col-xs-11 col-sm-4 alert alert-danger"
+  role="alert" data-notify-position="top-right"
+  style="display: inline-block; margin: 0px auto; padding-left: 65px; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; right: 20px;">
+  <span data-notify="icon" class="none">
+  </span>
+  <span data-notify="title">Mensagem</span> <span data-notify="message">Erro ao tentar cadastrar o Contrato
+    Financeiro!</span>
 </div>

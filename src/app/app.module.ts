@@ -14,8 +14,7 @@ import { MonitoramentoComponent } from './page/monitoramento/monitoramento.compo
     AppComponent,
     ContratoComponent,
     ContratoCadastrarComponent,
-    MonitoramentoComponent,
-    MenuLateralComponent
+    MonitoramentoComponent
   ],
   imports: [
     BrowserModule,
