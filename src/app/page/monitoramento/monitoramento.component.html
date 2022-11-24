@@ -1,1 +1,150 @@
-<p>monitoramento works!</p>
+<div class="panel-header bg-primary-gradient">
+  <div class="page-inner py-5">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+      <div>
+        <h2 class="text-white pb-2 fw-bold"></h2>
+        <h5 class="text-white op-7 mb-2">Monitoramento de Contratos Ativo</h5>
+      </div>
+      <div class="ml-md-auto py-2 py-md-0">
+        <a routerLink="/contrato-cadastrar" class="btn btn-white btn-border btn-round mr-2">Cadastrar Novo Contrato</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-inner mt--5">
+
+  <div class="row mt--2">
+
+    <div class="col-md-6">
+      <div class="card full-height">
+        <div class="card-body">
+          <div class="card-title">Prazos de Contratos</div>
+          <div class="card-category"></div>
+          <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
+            <div class="px-2 pb-2 pb-md-0 text-center">
+              <div id="circles-1"></div>
+              <h6 class="fw-bold mt-3 mb-0">Novos Contratos</h6>
+            </div>
+            <div class="px-2 pb-2 pb-md-0 text-center">
+              <div id="circles-2"></div>
+              <h6 class="fw-bold mt-3 mb-0">A vencer</h6>
+            </div>
+            <div class="px-2 pb-2 pb-md-0 text-center">
+              <div id="circles-3"></div>
+              <h6 class="fw-bold mt-3 mb-0">Vencidos</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card full-height">
+        <div class="card-body">
+          <div class="card-title">Gasto com Contratos Financeiros</div>
+          <div class="row py-3">
+            <div class="col-md-4 d-flex flex-column justify-content-around">
+              <div>
+                <h6 class="fw-bold text-uppercase text-success op-8">Total</h6>
+                <h3 class="fw-bold">R$900,82</h3>
+              </div>
+              <div>
+                <h6 class="fw-bold text-uppercase text-danger op-8">Total</h6>
+                <h3 class="fw-bold">R$248,23</h3>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div id="chart-container">
+                <canvas id="totalIncomeChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-head-row">
+            <div class="card-title">Evolução de Contratos</div>
+            <div class="card-tools">
+              <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
+                <span class="btn-label">
+                  <i class="fa fa-pencil"></i>
+                </span>
+                Exportar
+              </a>
+              <a href="#" class="btn btn-info btn-border btn-round btn-sm">
+                <span class="btn-label">
+                  <i class="fa fa-print"></i>
+                </span>
+                Imprimir
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-container" style="min-height: 375px">
+            <canvas id="statisticsChart"></canvas>
+          </div>
+          <div id="myChartLegend"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Principais Contratos</div>
+        </div>
+        <div class="card-body pb-0">
+          <div class="d-flex">
+            <div class="avatar">
+              <img src="../assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
+            </div>
+            <div class="flex-1 pt-1 ml-2">
+              <h6 class="fw-bold mb-1">VIVO Telecomunicações</h6>
+              <small class="text-muted">Contrato de Prestação de Serviços de Telefonia Móvel</small>
+            </div>
+            <div class="d-flex ml-auto align-items-center">
+              <h3 class="text-info fw-bold">+R$179,00</h3>
+            </div>
+          </div>
+          <div class="separator-dashed"></div>
+          <div class="d-flex">
+            <div class="avatar">
+              <img src="../assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
+            </div>
+            <div class="flex-1 pt-1 ml-2">
+              <h6 class="fw-bold mb-1">TIM Telecomunicações</h6>
+              <small class="text-muted">The Best Donuts</small>
+            </div>
+            <div class="d-flex ml-auto align-items-center">
+              <h3 class="text-info fw-bold">+$300</h3>
+            </div>
+          </div>
+          <div class="separator-dashed"></div>
+          <div class="d-flex">
+            <div class="avatar">
+              <img src="../assets/img/logoproduct3.svg" alt="..." class="avatar-img rounded-circle">
+            </div>
+            <div class="flex-1 pt-1 ml-2">
+              <h6 class="fw-bold mb-1">Brava Internet Fibra Ótica</h6>
+              <small class="text-muted">Bootstrap 4 Admin Dashboard</small>
+            </div>
+            <div class="d-flex ml-auto align-items-center">
+              <h3 class="text-info fw-bold">+$350</h3>
+            </div>
+          </div>
+          <div class="separator-dashed"></div>
+          <div class="pull-in">
+            <canvas id="topProductsChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

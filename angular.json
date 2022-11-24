@@ -6,7 +6,7 @@
     "gercontratweb": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
+      "root": "src/",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -24,16 +24,31 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/bootstrap.css",
-              "src/assets/vendors/perfect-scrollbar/perfect-scrollbar.css",
-              "src/assets/vendors/bootstrap-icons/bootstrap-icons.css",
-              "src/assets/css/app.css",
-              "src/assets/vendors/toastify/toastify.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/atlantis.css",
+              "src/assets/css/demo.css",
+              "src/assets/css/fonts.css"
             ],
             "scripts": [
-              "src/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js",
-              "src/assets/js/bootstrap.bundle.min.js",
-              "src/assets/js/main.js"
+              "src/assets/js/plugin/webfont/webfont.min.js",
+              "src/assets/js/core/jquery.3.2.1.min.js",
+              "src/assets/js/core/popper.min.js",
+              "src/assets/js/core/bootstrap.min.js",
+              "src/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js",
+              "src/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js",
+              "src/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js",
+              "src/assets/js/plugin/chart.js/chart.min.js",
+              "src/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js",
+              "src/assets/js/plugin/chart-circle/circles.min.js",
+              "src/assets/js/plugin/datatables/datatables.min.js",
+              "src/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js",
+              "src/assets/js/plugin/jqvmap/jquery.vmap.min.js",
+              "src/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js",
+              "src/assets/js/plugin/sweetalert/sweetalert.min.js",
+              "src/assets/js/atlantis.min.js",
+              "src/assets/js/atlantis2.js",
+              "src/assets/js/setting-demo.js",
+              "src/assets/js/demo.js"
             ]
           },
           "configurations": {
@@ -41,8 +56,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "10mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",

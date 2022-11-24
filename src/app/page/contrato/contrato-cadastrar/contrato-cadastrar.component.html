@@ -1,193 +1,132 @@
-<div id="app">
-  <div id="sidebar" class="active">
-    <div class="sidebar-wrapper active">
-      <div class="sidebar-header">
-        <div class="d-flex justify-content-between">
-          <div class="logo">
-            <!-- <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a> -->
-            <h4 class="text-subtitle text-muted">GERCONTRAT</h4>
-          </div>
-          <div class="toggler">
-            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="sidebar-menu">
-        <ul class="menu">
-          <li class="sidebar-title">Menu</li>
-
-          <li class="sidebar-item  ">
-            <a routerLink="monitoramento" class='sidebar-link'>
-              <i class="bi bi-grid-fill"></i>
-              <span>Monitoramento</span>
-            </a>
-          </li>
-
-          <li class="sidebar-title">Cadastros</li>
-
-          <li class="sidebar-item  active">
-            <a routerLink="contrato-cadastrar" class='sidebar-link'>
-              <i class="bi bi-cash"></i>
-              <span>Contratos Financeiros</span>
-            </a>
-          </li>
-
-        </ul>
-      </div>
-      <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
-    </div>
+<div class="panel-header bg-primary-gradient">
+  <div class="page-inner py-5">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row"></div>
   </div>
+</div>
 
-  <div id="main">
-    <header class="mb-3">
-      <a href="#" class="burger-btn d-block d-xl-none">
-        <i class="bi bi-justify fs-3"></i>
-      </a>
-    </header>
+<div class="page-inner mt--5">
 
-    <div class="page-heading">
-      <div class="page-title">
-        <div class="row">
-          <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3></h3>
-            <p class="text-subtitle text-muted"></p>
-          </div>
-          <div class="col-12 col-md-6 order-md-2 order-first">
-            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a routerLink="monitoramento">Monitoramento</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Cadastro de Contratos Financeiros</li>
-              </ol>
-            </nav>
-          </div>
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Cadastro de Contratos Financeiros</div>
         </div>
-      </div>
+        <div class="card-body">
 
-      <section id="multiple-column-form">
-        <div class="row match-height">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Cadastro de Contratos Financeiros</h4>
+          <form [formGroup]="formBuilderGroup" class="form">
+
+            <div class="row">
+
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="tipo-contrato-financeiro">Tipo de Contrato Financeiro</label>
+                  <select id="tipo-contrato-financeiro" name="tipo-contrato-financeiro" formControlName="codigoTipoContrato" class="form-control">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let item of pessoaTipoContratoList" [value]="item.codigo">{{item.descricao}}</option>
+                  </select>
+                </div>
               </div>
-              <div class="card-content">
-                <div class="card-body">
-                  <form class="form">
 
-                    <div class="row">
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="intituicao-financeira">Instituição Financeira</label>
+                  <select id="intituicao-financeira" name="intituicao-financeira" formControlName="codigoInstituicaoFinanceira" class="form-control">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let item of pessoaJuridicaList" [value]="item.codigo">{{item.nome}}</option>
+                  </select>
+                </div>
+              </div>
 
-                      <div class="col-md-6 col-12">
-                        <div class="form-group">
-                          <label for="pessoa-juridica">Instituição Financeira</label>
-                          <fieldset class="form-group">
-                            <select id="pessoa-juridica" class="form-select">
-                              <option>Selecione</option>
-                              <option *ngFor="let item of pessoaList">{{item.nome}}</option>
-                            </select>
-                          </fieldset>
-                        </div>
-                      </div>
-
-                      <div class="col-md-6 col-12">
-                        <div class="form-group">
-                          <label for="tipo-contrato">Tipo de Contrato</label>
-                          <fieldset class="form-group">
-                            <select id="tipo-contrato" class="form-select">
-                              <option>Selecione</option>
-                              <option *ngFor="let item of tipoContratoList">{{item.descricao}}</option>
-                            </select>
-                          </fieldset>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="row"><br/></div>
-
-                    <div class="row">
-
-                      <div class="col-md-4 col-12">
-                        <div class="form-group">
-                          <label for="periodo-contrato">Período do Contrato</label>
-                          <fieldset class="form-group">
-                            <select id="periodo-contrato" class="form-select">
-                              <option>Selecione</option>
-                              <option *ngFor="let item of tipoPeriodoFinanceiroList">{{item.descricao}}</option>
-                            </select>
-                          </fieldset>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-12">
-                        <div class="form-group">
-                          <label for="country-floating">Data Início da Vigência</label>
-                          <input type="text" id="country-floating" class="form-control" name="country-floating" placeholder="DD/MM/AAAA">
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-12">
-                        <div class="form-group">
-                          <label for="valor-contrato">Valor Recebido</label>
-                          <input type="text" id="valor-contrato" class="form-control" name="country-floating" placeholder="R$ 00,00">
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="row"><br/></div>
-
-                    <div class="row">
-
-                      <div class="col-md-4 col-12">
-                        <div class="form-group">
-                          <label for="valor-contrato">Valor da Parcela</label>
-                          <input type="text" id="valor-contrato" class="form-control" name="country-floating" placeholder="R$ 00,00">
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-12">
-                        <div class="form-group">
-                          <label for="company-column">Dia do Vencimento</label>
-                          <input type="text" id="company-column" class="form-control" name="company-column" placeholder="DD">
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-12">
-                        <div class="form-group">
-                          <label for="quantidade-parcelas">Quantidade de Parcelas</label>
-                          <input type="text" id="quantidade-parcelas" class="form-control" name="company-column" placeholder="Quantidade de Parcelas">
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="row"><br/></div>
-
-                      <div class="col-12 d-flex justify-content-end">
-                        <button id="background" class="btn btn-primary btn-block me-1 mb-1">Cadastrar Contrato</button>
-                        <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
-                      </div>
-
-                  </form>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="tipo-periodo-financeiro">Período Financeiro</label>
+                  <select id="tipo-periodo-financeiro" name="tipo-periodo-financeiro" formControlName="codigoTipoPeriodo" class="form-control">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let item of pessoaTipoPeriodoFinanceiroList" [value]="item.codigo">{{item.descricao}}</option>
+                  </select>
                 </div>
               </div>
             </div>
-          </div>
+
+            <div class="row">
+
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="data-inicio">Data Início da Vigência do Contrato</label>
+                  <input type="date" id="data-inicio" name="data-inicio" formControlName="dataInicio" class="form-control">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="valor-recebido">Valor Recebido</label>
+                  <input type="text" id="valor-recebido" name="valor-recebido" formControlName="valorEfetivo" placeholder="R$ 00,00" class="form-control">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label for="valor-parcela">Valor da Parcela</label>
+                  <input type="text" id="valor-parcela" name="valor-parcela" placeholder="R$ 00,00" formControlName="valorParcela" class="form-control">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label for="dia-vencimento">Dia do Vencimento</label>
+                  <input type="text" id="dia-vencimento" name="dia-vencimento" formControlName="diaVencimento" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label for="quantidade-parcela">Quantidade de Parcelas</label>
+                  <input type="text" id="quantidade-parcela" name="quantidade-parcela" formControlName="quantidadeParcela" class="form-control">
+                </div>
+              </div>
+            </div>
+
+            <div class="row"><br /></div>
+
+            <div class="row">
+              <div class="col-md-6 col-lg-10">
+                <button id="background" [disabled]="!formBuilderGroup.valid" (click)="saveOne()" class="btn btn-primary btn-block me-1 mb-1">Cadastrar
+                  Contrato</button>
+              </div>
+              <div class="col-md-6 col-lg-2">
+                <button id="background" (click)="redirecionarPaginaGerenciadorContrato()"
+                  class="btn btn-danger btn-block btn-border me-1 mb-1">Cancelar</button>
+              </div>
+
+            </div>
+
+          </form>
+
         </div>
-      </section>
-    </div>
-
-    <footer>
-      <div class="footer clearfix mb-0 text-muted">
-        <!--        <div class="float-start">-->
-        <!--          <p>2021 &copy; Mazer</p>-->
-        <!--        </div>-->
-        <!--        <div class="float-end">-->
-        <!--          <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a-->
-        <!--            href="http://ahmadsaugi.com">A. Saugi</a></p>-->
-        <!--        </div>-->
       </div>
-    </footer>
-
+    </div>
   </div>
+</div>
+
+<div *ngIf="isApresentarMensagemSucesso" data-notify="container" class="col-10 col-xs-11 col-sm-4 alert alert-success"
+  role="alert" data-notify-position="top-right"
+  style="display: inline-block; margin: 0px auto; padding-left: 65px; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; right: 20px;">
+  <span data-notify="icon" class="none">
+  </span>
+  <span data-notify="title">Mensagem</span> <span data-notify="message">Contrato Financeiro cadastrado com
+    Sucesso!</span>
+</div>
+
+<div *ngIf="isApresentarMensagemErro" data-notify="container" class="col-10 col-xs-11 col-sm-4 alert alert-danger"
+  role="alert" data-notify-position="top-right"
+  style="display: inline-block; margin: 0px auto; padding-left: 65px; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; right: 20px;">
+  <span data-notify="icon" class="none">
+  </span>
+  <span data-notify="title">Mensagem</span> <span data-notify="message">Erro ao tentar cadastrar o Contrato
+    Financeiro!</span>
 </div>
